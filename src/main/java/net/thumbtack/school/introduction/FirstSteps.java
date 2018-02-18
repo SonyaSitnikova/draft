@@ -85,15 +85,11 @@ public class FirstSteps {
 
     public boolean isSortedDescendant(int[] array){
         boolean bl = true;
-        int n = 0;
         for (int i=1; i<array.length; i++){
             if (array[i] >= array[i-1]){
-                n++;
+                bl = false;
+                break;
             }
-        }
-
-        if (n>0){
-            bl = false;
         }
         return bl;
     }
@@ -101,21 +97,18 @@ public class FirstSteps {
     public int[] cube(int[] array){
         int [] arraycube = new int[array.length];
         for (int i = 0; i < array.length; i++){
-            arraycube[i] = array[i]*array[i]*array[i];
+            arraycube[i] = (int) Math.pow(array[i], 3);
         }
         return arraycube;
     }
 
     public boolean find(int[] array, int value){
         boolean bl = false;
-        int n = 0;
         for (int i : array) {
             if (array[i]==value){
-                n++;
+                bl = true;
+                break;
             }
-        }
-        if (n>0){
-            bl = true;
         }
         return bl;
     }
@@ -133,16 +126,13 @@ public class FirstSteps {
 
     public boolean isPalindrome(int[] array){
         boolean bl = true;
-        int n = 0;
         int j = array.length-1;
         for (int i = 0; i< array.length/2; i++){
-            if(array[i]==array[j]){
-                n=0;
-            }else n++;
+            if(array[i]!=array[j]){
+                bl = false;
+                break;
+            }
             j--;
-        }
-        if (n>0){
-            bl = false;
         }
         return bl;
     }
@@ -181,14 +171,11 @@ public class FirstSteps {
 
     public boolean isSortedDescendant(int[][] matrix){
         boolean bl = true;
-        int n = 0;
         for (int []i : matrix) {
             if (!isSortedDescendant(i)){
-                n++;
+                bl = false;
+                break;
             }
-        }
-        if (n>0){
-            bl = false;
         }
         return bl;
     }
